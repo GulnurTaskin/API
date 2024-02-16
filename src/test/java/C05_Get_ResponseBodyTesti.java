@@ -1,10 +1,9 @@
 import io.restassured.response.Response;
-import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import static io.restassured.RestAssured.given;
 
-public class C5_Get_ResponseBodyTesti {
+public class C05_Get_ResponseBodyTesti {
 
     //   https://jsonplaceholder.typicode.com/posts/44 url'ine bir GET request yolladigimizda
 //   donen Response'in

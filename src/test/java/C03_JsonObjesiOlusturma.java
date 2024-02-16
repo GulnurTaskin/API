@@ -1,7 +1,8 @@
 import org.json.JSONObject;
 import org.junit.Test;
 
-public class C3_JsonObjesiOlusturma {
+public class C03_JsonObjesiOlusturma {
+
     /*
     Asagidaki JSON Objesini olusturup konsolda yazdirin.
               {
@@ -24,23 +25,24 @@ public class C3_JsonObjesiOlusturma {
     }
 
     /*
-Asagidaki JSON Objesini olusturup konsolda yazdirin.
+     Asagidaki JSON Objesini olusturup konsolda yazdirin.
 
-{
-"firstname":"Jim",
-"additionalneeds":"Breakfast",
-"bookingdates":{
+     {
+      "firstname":"Jim",
+      "additionalneeds":"Breakfast",
+      "bookingdates":{
                "checkin":"2018-01-01",
                "checkout":"2019-01-01"
                },
-"totalprice":111,
-"depositpaid":true,
-"lastname":"Brown"
-}
-*/
+      "totalprice":111,
+      "depositpaid":true,
+      "lastname":"Brown"
+      }
+     */
 
     @Test
     public void innerJsonData(){
+
         JSONObject innerJson=new JSONObject();
         innerJson.put("checkin","2018-01-01");
         innerJson.put("checkout","2019-01-01");
@@ -56,8 +58,6 @@ Asagidaki JSON Objesini olusturup konsolda yazdirin.
 
         System.out.println(outerJson);
 
-
     }
-
 
 }

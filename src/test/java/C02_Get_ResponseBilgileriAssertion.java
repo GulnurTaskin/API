@@ -3,7 +3,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class C2_Get_ResponseBilgileriAssertion {
+public class C02_Get_ResponseBilgileriAssertion {
 
  /*
     https://restful-booker.herokuapp.com/booking/10 url'ine bir GET request
@@ -18,17 +18,20 @@ public class C2_Get_ResponseBilgileriAssertion {
     public void get01(){
 
 
-        // API Testlerinde genelde işlemler 4 aşamada gerçekleşir
+        /* API Testlerinde genelde işlemler 4 aşamada gerçekleşir*/
+
         // 1-Endpoint belirlenerek hazırlanır
+
         String url="https://restful-booker.herokuapp.com/booking/1";
 
         // 2-Gerekli ise Expected Data hazırlanır
 
-
         //  3-Actual Data kaydedilir
+
         Response response=given().when().get(url);
 
         //   4-Assertion İşlemi Yapılır
+
         response.then()
                 .assertThat()
                 .statusCode(200)
