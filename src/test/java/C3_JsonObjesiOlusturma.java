@@ -57,19 +57,7 @@ Asagidaki JSON Objesini olusturup konsolda yazdirin.
         System.out.println(outerJson);
 
 
-
-
-
     }
-
-
-
-
-
-
-
-
-
 
 
 }
