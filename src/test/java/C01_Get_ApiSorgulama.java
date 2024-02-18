@@ -1,5 +1,6 @@
 import io.restassured.response.Response;
-
+// intellij'de Api sorgulari yapmak icin io.restassured kutuphanesi kullanilir
+// ve Response class'indan bir obje olusturmamiz gerekir
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 public class C01_Get_ApiSorgulama {
@@ -24,7 +25,7 @@ public class C01_Get_ApiSorgulama {
 
         // 1-Endpoint belirlenerek hazirlanir
 
-        String url="https://restful-booker.herokuapp.com/booking/10";
+        String url="https://restful-booker.herokuapp.com/booking/";
 
         //2-Gerekli ise Expected data hazirlanir
 
@@ -35,7 +36,14 @@ public class C01_Get_ApiSorgulama {
         /* burada id'si 10 olan rezervasyonu getirdik ve
         icindeki bilgilerini response objesine kaydettik*/
 
-        //response.prettyPrint();
+        // Response olustururken kullandigimiz gherkin dili
+        // given: Testimize baslarken bize verilen baslangic degerlerini ifade eder
+        // when: Testimizde gerceklestirdigimiz islemleri ifade eder
+        // then: Response degerlerini degerlendirmek icin yapilan islemleri ifade eder
+        // and: Birbirine bagli islemleri ifade eder
+
+        //response.prettyPrint(); ==> burda data cok olursa bu sorguyu yapmak problemli olabilir
+        // bu her zaman yapilmamasi gereken bir sorgudur
 
         // 4-Assertion islemi yapilir
 

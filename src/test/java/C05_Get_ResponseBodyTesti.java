@@ -22,7 +22,7 @@ public class C05_Get_ResponseBodyTesti {
 
         // actual data kaydedilir
         Response response = given().when().get(url);
-        response.prettyPrint();
+        //response.prettyPrint();
 
         // assertion islemi
 
@@ -31,6 +31,7 @@ public class C05_Get_ResponseBodyTesti {
                 .contentType("application/json; charset=utf-8")
                 .body("userId", Matchers.equalTo(5))
                 .body("title", Matchers.equalTo("optio dolor molestias sit"));
+
 
     }
 

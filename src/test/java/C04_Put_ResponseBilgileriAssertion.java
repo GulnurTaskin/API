@@ -23,7 +23,7 @@ public class C04_Put_ResponseBilgileriAssertion {
     @Test
     public void put01(){
 
-        // endpoint belirlenerek hazirlanir
+        // 1- endpoint belirlenerek hazirlanir
 
         String url = "https://jsonplaceholder.typicode.com/posts/70";
 
@@ -33,13 +33,15 @@ public class C04_Put_ResponseBilgileriAssertion {
         reqBody.put("userId",10);
         reqBody.put("id",70);
 
-        // gerekli ise Expected data hazirlanir
+        // 2- gerekli ise Expected data hazirlanir
 
-        // actual data kaydedilir
+        // 3- actual data kaydedilir
 
         Response response = given().contentType(ContentType.JSON).when().body(reqBody.toString()).put(url);
+        // burda neden toString yapiyoruz? key'ler her zaman string oldugu halde,
+        // value'ler farkli data tiplerinde oldugu icin, hepsini string'e cevir diyoruz
 
-        // assertion islemi yapilir
+        // 4- assertion islemi yapilir
 
         response.then().assertThat().statusCode(200)
                 .header("Server","cloudflare")

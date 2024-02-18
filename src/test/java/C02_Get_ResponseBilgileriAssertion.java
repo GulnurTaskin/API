@@ -22,7 +22,7 @@ public class C02_Get_ResponseBilgileriAssertion {
 
         // 1-Endpoint belirlenerek hazırlanır
 
-        String url="https://restful-booker.herokuapp.com/booking/1";
+        String url="https://restful-booker.herokuapp.com/booking/10";
 
         // 2-Gerekli ise Expected Data hazırlanır
 
