@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
@@ -44,7 +46,11 @@ public class C11_Get_ExpectedDataOlusturma {
         Response response = given().when().get(url);
 
         // 4- asssertion islemi
-
+        /*
+        Şimdiye kadar kullndığımız assertThat() metodu ile yapılan testlerdeki gibi assertion yapılabilir
+        Frameworkümüzü geliştirmek için dinamik bir yapı kazandırlabiliriz. Bunu için de HardAssert kullanabiliriz.
+        Bunun için JUnit kullanacağız
+         */
         JsonPath respJsonPath = response.jsonPath();
         assertEquals(expBody.get("userId"),respJsonPath.get("userId"));
         assertEquals(expBody.get("id"),respJsonPath.get("id"));

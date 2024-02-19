@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.response.Response;
 // intellij'de Api sorgulari yapmak icin io.restassured kutuphanesi kullanilir
 // ve Response class'indan bir obje olusturmamiz gerekir
