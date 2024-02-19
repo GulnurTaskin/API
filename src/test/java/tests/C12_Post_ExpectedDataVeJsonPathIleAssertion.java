@@ -49,7 +49,8 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
     @Test
     public void expBodyPostTesti(){
 
-        //1-Endpoint ve Request Body hazırlama
+        // 1-Endpoint ve Request Body hazırlama
+
         String url="https://restful-booker.herokuapp.com/booking";
         /*
         "firstname" : "Hasan",
@@ -75,19 +76,21 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
         reqBody.put("additionalneeds" , "wi-fi");
 
 
-        //2-ExpBody hazırlama
+        // 2-ExpBody hazırlama
+
         JSONObject expBody=new JSONObject();
-        expBody.put("bookingid",24);
+        expBody.put("bookingid",24); // expBody ile reqBody arasinda tek "bookingid":24
         expBody.put("booking",reqBody);
 
-        //3-Request Gönder ve Response Kaydet
+        // 3-Request Gönder ve Response Kaydet
 
         Response response=given().contentType(ContentType.JSON).when().body(reqBody.toString()).post(url);
 
-        //response.prettyPrint();
-        //4-Assertion yapma (assertEqual(expected,respons)
-        JsonPath respJP=response.jsonPath();
+        // response.prettyPrint();
 
+        // 4-Assertion yapma (assertEqual(expected,response)
+
+        JsonPath respJP=response.jsonPath();
 
         assertEquals(expBody.getJSONObject("booking").get("firstname"),respJP.get("booking.firstname"));
         assertEquals(expBody.getJSONObject("booking").get("lastname"),respJP.get("booking.lastname"));
@@ -98,6 +101,7 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
         assertEquals(expBody.getJSONObject("booking").get("additionalneeds"),respJP.get("booking.additionalneeds"));
 
 
+        // her suslu parantez icini bir kutu gibi dusunursek, kutunun icini acmak icin jsonobjet olusturmamiz lazim
     }
 
 

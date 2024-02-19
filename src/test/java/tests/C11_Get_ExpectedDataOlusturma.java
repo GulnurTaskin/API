@@ -3,11 +3,10 @@ package tests;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class C11_Get_ExpectedDataOlusturma {
 /*
@@ -48,9 +47,12 @@ public class C11_Get_ExpectedDataOlusturma {
         // 4- asssertion islemi
         /*
         Şimdiye kadar kullndığımız assertThat() metodu ile yapılan testlerdeki gibi assertion yapılabilir
-        Frameworkümüzü geliştirmek için dinamik bir yapı kazandırlabiliriz. Bunu için de HardAssert kullanabiliriz.
+        Frameworkümüzü geliştirmek için dinamik bir yapı kazandırabiliriz. Bunu için de HardAssert kullanabiliriz.
         Bunun için JUnit kullanacağız
          */
+
+        // expBody bir json obje, response'muz json obje degil, o yuzden response'u json path yapmamiz lazim
+        // jsonPath'e cevirince response dinamik hale geliyor, isimiz daha kolaylasiyor
         JsonPath respJsonPath = response.jsonPath();
         assertEquals(expBody.get("userId"),respJsonPath.get("userId"));
         assertEquals(expBody.get("id"),respJsonPath.get("id"));

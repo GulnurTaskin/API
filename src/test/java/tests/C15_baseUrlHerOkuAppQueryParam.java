@@ -28,7 +28,6 @@ public class C15_baseUrlHerOkuAppQueryParam extends BaseUrlHerOkuApp {
 
         //response.prettyPrint();
 
-
         response.then().assertThat().statusCode(200).body("bookingid",Matchers.hasItem(305));
 
 

@@ -31,18 +31,20 @@ public class C13_Get_SoftAssertIleExpectedDataTesti {
 */
 
     @Test
-    public void softAsserTest(){
+    public void softAssertTest(){
 
         //1-Endpoint ve reqBody hazırlama
         String url="http://dummy.restapiexample.com/api/v1/employee/3";
         //2-ExpectedBody hazırlama
 
         JSONObject data=new JSONObject();
+
         data.put("id",3);
         data.put("employee_name","Ashton Cox");
         data.put("employee_salary",86000);
         data.put("employee_age",66);
         data.put("profile_image","");
+
         JSONObject expBody=new JSONObject();
         expBody.put("status","success");
         expBody.put("data",data);
@@ -53,6 +55,7 @@ public class C13_Get_SoftAssertIleExpectedDataTesti {
         Response response=given().when().get(url);
 
         //4-Assertion İşlemi
+
         JsonPath respJP=response.jsonPath(); //Gelen cevabı alıp JsonPath'e cast ediyoruz.
         SoftAssert softAssert=new SoftAssert();
 
@@ -63,14 +66,10 @@ public class C13_Get_SoftAssertIleExpectedDataTesti {
         softAssert.assertEquals(respJP.get("data.employee_age"),expBody.getJSONObject("data").get("employee_age"));
         softAssert.assertEquals(respJP.get("data.profile_image"),expBody.getJSONObject("data").get("profile_image"));
         softAssert.assertEquals(respJP.get("message"),expBody.get("message"));
-        softAssert.assertAll();
+        softAssert.assertAll();// sonunda assertAll raprlama gelmez
 
-
-
-
-
-
-
+        /* Hard assert, bir assert ifadesi başarısız olduğunda testi sonlandırırken;
+           soft assert, hata durumunu raporlar ancak testin devam etmesine izin verir. */
 
     }
 }
