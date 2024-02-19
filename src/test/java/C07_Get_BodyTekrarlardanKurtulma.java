@@ -28,9 +28,9 @@ public class C07_Get_BodyTekrarlardanKurtulma {
         Response response=given().when().get(url);
 
         response.then().assertThat().statusCode(200).contentType("application/json")
-                .body("firstname", equalTo("Eric"),"lastname",equalTo("Wilson"),
-                        "totalprice",equalTo(866),"depositpaid",equalTo(true),
-                        "additionalneeds",equalTo("Breakfast"));
+                .body("firstname", equalTo("Jane"),"lastname",equalTo("Doe"),
+                        "totalprice",equalTo(111),"depositpaid",equalTo(true),
+                        "additionalneeds",equalTo("Extra pillows please"));
         System.out.println(response.contentType());
 
     }

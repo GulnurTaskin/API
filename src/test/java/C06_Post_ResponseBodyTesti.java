@@ -46,6 +46,7 @@ public class C06_Post_ResponseBodyTesti {
                 .body("title",equalTo("API"))
                 .body("userId",lessThan(100))
                 .body("body",containsString("API"));
+                 // gonderdigimiz sey string oldugu icin, containsString ile sorgumuzu yapiyoruz
 
 
 
