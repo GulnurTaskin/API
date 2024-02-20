@@ -29,23 +29,19 @@ public class C19_TestDataKullanimiJsonPlace  extends BaseUrlJsonPlaceUrl {
         }
      */
 
-
-
-
-    //3-Request gönder / Response Kaydet
-    //4-Assertion İşlemi yap
-
     @Test
     public void test01(){
+
         //1-Endpoint ve RequestBody varsa hazırlamak
         specJsonPlaceHolder.pathParams("pp1","posts","pp2","22");
 
         //2-ExpectedBody Hazırlama
         JSONObject expBody= JsonPlaceData.expectedDataOlustur22();
 
-
+        //3-Request gönder / Response Kaydet
         Response response=given().when().spec(specJsonPlaceHolder).get("{pp1}/{pp2}");
 
+        //4-Assertion İşlemi yap
         JsonPath resJP=response.jsonPath();
         assertEquals(JsonPlaceData.basariliSC,response.getStatusCode());
         assertEquals(expBody.getInt("userId"),resJP.getInt("userId"));

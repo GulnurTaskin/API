@@ -10,7 +10,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class OdevSorusu extends BaseUrlDummy {
+public class OdevSorusu extends BaseUrlDummy { // baseUrlDummy'de yazdigimiz before class ilk once calisacaktir
     /*
        http://dummy.restapiexample.com/api/v1/update/21 url'ine
        asagidaki body'ye sahip bir PUT request gonderdigimizde
@@ -44,7 +44,10 @@ public class OdevSorusu extends BaseUrlDummy {
 
     @Test
     public void test() {
+
+        // 1- endpoint ve reqBody hazirlanir
         specDummy.pathParams("pp1", "update", "pp2", "21");
+
         JSONObject innerData = new JSONObject();
         innerData.put("name", "Ahmet");
         innerData.put("salary", "1230");
@@ -55,19 +58,23 @@ public class OdevSorusu extends BaseUrlDummy {
         reqBody.put("status", "success");
         reqBody.put("data", innerData);
 
-
+        // 2- expected data hazirlanir
         JSONObject expBody = new JSONObject();
         expBody.put("status", "success");
         expBody.put("data", reqBody);
         expBody.put("message", "Successfully! Record has been updated.");
 
+        // 3- response alinir ve kaydedilir
         Response response = given().contentType(ContentType.JSON)
                 .when().spec(specDummy).body(reqBody.toString())
                 .put("{pp1}/{pp2}");
 
         //response.prettyPrint();
 
+        // response jsonpath objesine cevrilir assert yapmak icin
         JsonPath resJP = response.jsonPath();
+
+        // 4- assertion yapilir
         assertEquals(expBody.get("status"), resJP.get("status"));
         assertEquals(expBody.getJSONObject("data").get("status"), resJP.get("data.status"));
         assertEquals(expBody.getJSONObject("data").getJSONObject("data").get("name"), resJP.get("data.data.name"));

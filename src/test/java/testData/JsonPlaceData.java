@@ -18,6 +18,9 @@ public class JsonPlaceData {
         return expData;
     }
 
+    // data'yi dinamik hale getirmek icin asagidaki methodumuzu hazirliyoruz
+    // C20 ve C21 class'larinda bu methodu kullandik ornek olarak
+    // ama artik dinamik oldugu icin istedigimiz her yerde bu methodu kullanabiliriz
     public static JSONObject JSonDataOlustur(int userId, int id, String title, String body){
         JSONObject expData=new JSONObject();
         expData.put("userId",userId);

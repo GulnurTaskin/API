@@ -5,14 +5,13 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-import org.junit.Assert;
 import org.junit.Test;
 import testData.JsonPlaceData;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class C21_TestDataJsonPlacePut extends BaseUrlJsonPlaceUrl {
+public class C21_TestDataJsonPlacePUT extends BaseUrlJsonPlaceUrl {
     /*
         https://jsonplaceholder.typicode.com/posts/70 url'ine
         asagidaki body’e sahip bir PUT request yolladigimizda
@@ -39,15 +38,26 @@ public class C21_TestDataJsonPlacePut extends BaseUrlJsonPlaceUrl {
 
     @Test
     public void test01(){
+
+        // 1- endpoint hazirlanir
+
         specJsonPlaceHolder.pathParams("pp1","posts","pp2","70");
+
+        // 2- reqbody hazirlanir
 
         JSONObject reqBody= JsonPlaceData.JSonDataOlustur(10,70,"Ahmet","Merhaba");
 
+        // 3- expected data hazirlanir
+
         JSONObject expBody= JsonPlaceData.JSonDataOlustur(10,70,"Ahmet","Merhaba");
+
+        // 4- request gonderilir ve response kaydedilir
 
         Response response=given().contentType(ContentType.JSON)
                 .when().spec(specJsonPlaceHolder).body(reqBody.toString())
                 .put("{pp1}/{pp2}");
+
+        // 5- assertion yapilir ama once response jsonpath objesine cevrilir
 
         JsonPath resJP=response.jsonPath();
 

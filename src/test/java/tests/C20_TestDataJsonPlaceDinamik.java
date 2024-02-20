@@ -30,14 +30,23 @@ public class C20_TestDataJsonPlaceDinamik extends BaseUrlJsonPlaceUrl {
      */
     @Test
     public void test01(){
+
+        // 1- endpoint hazirlanir
+
         specJsonPlaceHolder.pathParams("pp1","posts","pp2","40");
 
+        // 2- expbody hazirlanir
 
         JSONObject expBody= JsonPlaceData.JSonDataOlustur(4,40,"enim quo cumque","ut voluptatum aliquid illo tenetur nemo sequi quo facilis\nipsum rem optio mollitia quas\nvoluptatem eum voluptas qui\nunde omnis voluptatem iure quasi maxime voluptas nam");
 
+        // 3- request gonderilir ve response kaydedilir
+
         Response response=given().when().spec(specJsonPlaceHolder).get("{pp1}/{pp2}");
 
+        // 4- assertion yapilir. assertion oldugu icin basta response'u JsonPath objesine ceviriyoruz
+
         JsonPath resJP=response.jsonPath();
+
         assertEquals(JsonPlaceData.basariliSC,response.getStatusCode());
         assertEquals(expBody.getInt("userId"),resJP.getInt("userId"));
         assertEquals(expBody.getInt("id"),resJP.getInt("id"));

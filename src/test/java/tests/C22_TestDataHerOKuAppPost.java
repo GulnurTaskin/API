@@ -50,15 +50,27 @@ public class C22_TestDataHerOKuAppPost extends BaseUrlHerOkuApp {
 
     @Test
     public void test01(){
+
+        // 1- endpoint hazirlanir
+
         specHerOkuApp.pathParam("pp1","booking");
+
+        // 2- reqBody hazirlanir
+
         JSONObject reqBody= HerOkuAppDatas.JsonReqBodOlustur();
+
+        // 3- expected body hazirlanir
+
         JSONObject expBody= HerOkuAppDatas.JsonexpBodyOlustur();
 
+        // 4- request gonderilir ve response kaydedilir
+
         Response response=given().contentType(ContentType.JSON).when().spec(specHerOkuApp)
-                .body(reqBody.toString()).post("{pp1}");
+                .body(reqBody.toString()).post("{pp1}"); // yukarda post request gonderdigimizde diyor,
+                                                            // onu burda yapiyoruz
 
         /*
-        "booking":{
+                "booking":{
                             "firstname":"Ahmet",
                             "lastname":"Bulut",
                             "totalprice":500,
@@ -68,11 +80,11 @@ public class C22_TestDataHerOKuAppPost extends BaseUrlHerOkuApp {
                                     "checkout":"2021-06-10"
                                             },
                             "additionalneeds":"wi-fi"
-                                    }
-                          }
-
-
+                           }
          */
+
+        // assertion yapilir
+
         JsonPath resJP=response.jsonPath();
 
         assertEquals(expBody.getJSONObject("booking").get("firstname"),resJP.get("booking.firstname"));
@@ -85,11 +97,6 @@ public class C22_TestDataHerOKuAppPost extends BaseUrlHerOkuApp {
 
 
 
-
-
-
     }
-
-
 
 }
