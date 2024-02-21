@@ -35,7 +35,7 @@ public class C20_TestDataJsonPlaceDinamik extends BaseUrlJsonPlaceUrl {
 
         specJsonPlaceHolder.pathParams("pp1","posts","pp2","40");
 
-        // 2- expbody hazirlanir
+        // 2- expbody hazirlanir. (data class'inda olusturdugumuz method'u cagiriyoruz)
 
         JSONObject expBody= JsonPlaceData.JSonDataOlustur(4,40,"enim quo cumque","ut voluptatum aliquid illo tenetur nemo sequi quo facilis\nipsum rem optio mollitia quas\nvoluptatem eum voluptas qui\nunde omnis voluptatem iure quasi maxime voluptas nam");
 

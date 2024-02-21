@@ -46,7 +46,7 @@ public class C11_Get_ExpectedDataOlusturma {
 
         // 4- asssertion islemi
         /*
-        Şimdiye kadar kullndığımız assertThat() metodu ile yapılan testlerdeki gibi assertion yapılabilir
+        Şimdiye kadar kullandığımız assertThat() metodu ile yapılan testlerdeki gibi assertion yapılabilir
         Frameworkümüzü geliştirmek için dinamik bir yapı kazandırabiliriz. Bunu için de HardAssert kullanabiliriz.
         Bunun için JUnit kullanacağız
          */

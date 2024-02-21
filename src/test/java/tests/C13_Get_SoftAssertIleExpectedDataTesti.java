@@ -35,6 +35,7 @@ public class C13_Get_SoftAssertIleExpectedDataTesti {
 
         //1-Endpoint ve reqBody hazırlama
         String url="http://dummy.restapiexample.com/api/v1/employee/3";
+
         //2-ExpectedBody hazırlama
 
         JSONObject data=new JSONObject();

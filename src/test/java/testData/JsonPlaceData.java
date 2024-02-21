@@ -8,6 +8,7 @@ public class JsonPlaceData {
     public static  String header="keep-alive";
 
     public static JSONObject expectedDataOlustur22(){
+
         JSONObject expData=new JSONObject();
         expData.put("userId",3);
         expData.put("id",22);
@@ -16,6 +17,11 @@ public class JsonPlaceData {
                 "earum mollitia molestiae aut atque rem suscipit\nnam impedit esse");
 
         return expData;
+        // normalde bu kismi test class'inda expected data olusturma adiminda hazirliyorduk
+        // burda bunu bir method icine alarak formuluze ediyoruz
+        // static method oldugu icin sonunda return yapiyoruz
+        // bu data sekli tek bir id icin gecerlidir, yani farkli id'ler icin farkli data'lar hazirlamak gerekir
+        // bunun icin asagida expected data'yi dinamik hale getiren yeni bir method olacak
     }
 
     // data'yi dinamik hale getirmek icin asagidaki methodumuzu hazirliyoruz

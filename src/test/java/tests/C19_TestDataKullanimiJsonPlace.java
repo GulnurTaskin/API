@@ -35,7 +35,7 @@ public class C19_TestDataKullanimiJsonPlace  extends BaseUrlJsonPlaceUrl {
         //1-Endpoint ve RequestBody varsa hazırlamak
         specJsonPlaceHolder.pathParams("pp1","posts","pp2","22");
 
-        //2-ExpectedBody Hazırlama
+        //2-ExpectedBody Hazırlama. (jsonPlaceData class'inda olusturdugumuz method'u cagiriyoruz burda)
         JSONObject expBody= JsonPlaceData.expectedDataOlustur22();
 
         //3-Request gönder / Response Kaydet
