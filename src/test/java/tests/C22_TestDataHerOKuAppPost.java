@@ -57,7 +57,7 @@ public class C22_TestDataHerOKuAppPost extends BaseUrlHerOkuApp {
 
         // 2- reqBody hazirlanir
 
-        JSONObject reqBody= HerOkuAppDatas.JsonReqBodOlustur();
+        JSONObject reqBody= HerOkuAppDatas.JsonReqBodyOlustur();
 
         // 3- expected body hazirlanir
 

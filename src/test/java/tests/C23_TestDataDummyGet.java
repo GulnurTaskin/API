@@ -38,12 +38,18 @@ public class C23_TestDataDummyGet extends BaseUrlDummy {
     public void test01(){
 
         // 1- endpoint hazirlanir
+
         specDummy.pathParams("pp1","employee", "pp2","3");
 
-        // 2- expected body olusturulur. bunu
+        // 2- expected body olusturulur. burda dummyData'da olusturdugumuz method'u cagiriyoruz
+
         JSONObject expBody= DummyData.expDataOlustur(3,"Ashton Cox",86000,66,"");
 
+        // 3- request gonderilir ve response kaydedilir
+
         Response response=given().spec(specDummy).when().get("{pp1}/{pp2}");
+
+        // 4- assertion islemi yapilir . ama once response'u JsonPath objesine ceviriyoruz
 
         JsonPath resJP=response.jsonPath();
 
@@ -51,6 +57,7 @@ public class C23_TestDataDummyGet extends BaseUrlDummy {
         assertEquals(DummyData.contentType,response.getContentType());
         assertEquals(expBody.get("status"),resJP.getString("status"));
         assertEquals(expBody.get("message"),resJP.getString("message"));
+
         assertEquals(expBody.getJSONObject("data").get("id"),resJP.getInt("data.id"));
         assertEquals(expBody.getJSONObject("data").get("employee_name"),resJP.getString("data.employee_name"));
         assertEquals(expBody.getJSONObject("data").get("employee_salary"),resJP.getInt("data.employee_salary"));
