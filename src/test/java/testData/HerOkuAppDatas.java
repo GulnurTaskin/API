@@ -98,6 +98,7 @@ public class HerOkuAppDatas {
          */
 
     public static Map<String,Object> expBodyOlustur() {
+
         Map<String,Object> expdataMap=new HashMap<>();
 
         expdataMap.put("bookingid",24);
@@ -108,8 +109,5 @@ public class HerOkuAppDatas {
 
 
     }
-
-
-
 
 }

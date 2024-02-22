@@ -42,6 +42,7 @@ public class DummyData {
 
 
     public static Map<String,Object> mapBodyOlustur(){
+
         Map<String,Object> mapBody=new HashMap<>();
         Map<String,Object> dataBody=new HashMap<>();
 

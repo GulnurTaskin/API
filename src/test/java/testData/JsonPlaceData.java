@@ -53,14 +53,24 @@ public class JsonPlaceData {
 
 
 
+    /* Java objelerini API sorgulari yapmak uzere Json objesine cevirmeye Serialization denir.
+       Verilen Json objesini testlerimizde kullanmak uzere Java objesine cevirmeye ise DeSerialization denir.
+
+       Asagida java objesi olarak donen bir body methodu yazdik
+       Bu methodu C24'de kullandik   */
+
     public static Map<String,Object> bodyOlustur(){
+        // elmas ici ilk her zaman string olmali, ikici ise farkli datalardan olabilir, o yuzden object dedik
+
+        /* JSONObject key-value ikililerini kullandigi icin De-Serialization islemi icin
+        Java’dan kullanacagimiz en uygun data turu Map’tir. */
 
         Map<String,Object> bodyMap=new HashMap<>();
+
         bodyMap.put("title","Ahmet");
         bodyMap.put("body","Merhaba");
         bodyMap.put("userId",10.0);
         bodyMap.put("id",70.0);
-
 
         return bodyMap;
     }

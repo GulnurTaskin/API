@@ -16,9 +16,9 @@ import static org.junit.Assert.assertEquals;
 public class C24_DeSerializationPUT extends BaseUrlJsonPlaceUrl {
 
     /*
-    https://jsonplaceholder.typicode.com/posts/70 url'ine
-    asagidaki body’e sahip bir PUT request yolladigimizda
-    donen response’in response body’sinin asagida verilen ile ayni oldugunu test ediniz
+      https://jsonplaceholder.typicode.com/posts/70 url'ine
+      asagidaki body’e sahip bir PUT request yolladigimizda
+      donen response’in response body’sinin asagida verilen ile ayni oldugunu test ediniz
 
         Request Body
 
@@ -39,31 +39,37 @@ public class C24_DeSerializationPUT extends BaseUrlJsonPlaceUrl {
         }
      */
 
+
     @Test
     public void test01(){
-        //1-endpoint hazırlama ve varsa reqBody hazırlama
+
+        // 1-endpoint hazırlama ve varsa reqBody hazırlama
+
         specJsonPlaceHolder.pathParams("pp1","posts","pp2","70");
 
         Map<String,Object> reqBodyMAP= JsonPlaceData.bodyOlustur();
 
-        //2-Expected Data oluşturma
+        // 2-Expected Data oluşturma
 
         Map<String,Object> expBodyMAP=JsonPlaceData.bodyOlustur();
         System.out.println("expBodyMAP = " + expBodyMAP);
 
-        //3-Response Kaydet
+        // 3-Request gonder ve Response Kaydet
 
         Response response=given().spec(specJsonPlaceHolder).contentType(ContentType.JSON)
                 .when().body(reqBodyMAP)
                 .put("{pp1}/{pp2}");
 
-        //4-Assertion İşlemi
+        // 4-Assertion İşlemi
 
         // expected body <--------> response
         //       Map     <-------->   response
 
-        //Assertion işlemi yapabilmek için dönen response MAP'e çevrilmelidir.
+        // Assertion işlemi yapabilmek için dönen response MAP'e çevrilmelidir.
         // İşte bu olaya De-Serialization denir
+
+        /* Sorgumuz sonucunda donen response objesini De-Serialization ile Map’e cevirmek icin Gson
+           kutuphanesinden yararlanabiliriz. (Bunun icin Gson dependency’yi pom xml’e eklemeliyiz). */
 
         Map<String,Object> resMap=response.as(HashMap.class);
 
