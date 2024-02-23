@@ -19,7 +19,8 @@ public class PojoJsonPlaceHolder {
 
 
     // 2- tum variable'lar icin getter ve setter metodlari olusturalim
-
+      /* mouse saga tikla, generate'e bas sonra da getter and setter
+         cikan elemanlari ctrl tusuyla hepsini sec ve Enter */
     public String getTitle() {
         return title;
     }
@@ -52,7 +53,10 @@ public class PojoJsonPlaceHolder {
         this.id = id;
     }
 
+
     // 3- tum parametreleri kullanarak bir constructor olusturalim
+    /* mouse saga tikla, generate'e bas, sonra da constractor'a.
+       cikan elemanlari ctrl tusuyla hepsini sec ve Enter */
 
     public PojoJsonPlaceHolder(String title, String body, int userId, int id) {
         this.title = title;
@@ -62,12 +66,13 @@ public class PojoJsonPlaceHolder {
     }
 
     // 4- default constructor yerine manuel olarak parametresiz bir constructor olusturalim
-
+      /* mouse saga tikla, generate, constactor, select none, ok */
     public PojoJsonPlaceHolder() {
     }
 
-    // 5- toString metodu olusturalim
 
+    // 5- toString metodu olusturalim
+      /* mouse saga tikla generate, toString(), ok */
 
     @Override
     public String toString() {
